@@ -57,6 +57,12 @@ async function startAI() {
         loadingText.style.display = "none";
         video.style.display = "block";
         video.src = `${baseUrl}/video_feed`;
+        const readyBtn = document.getElementById("ready-button");
+        readyBtn.style.display = "block";
+        readyBtn.onclick = () => {
+            readyBtn.style.display = "none";
+            showCountdown(getSignResults);
+        };
     } catch (err) {
         clearInterval(messageInterval);
         alert("Error communicating with backend.");

@@ -69,29 +69,47 @@ body, html {
     max-width: 90%;
     max-height: 80vh;
     box-shadow: 0 0 10px rgba(255, 99, 132, 0.3);
-}
-
-.center-line {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 50%;
-    width: 2px;
-    background-color: #ff6384;
-    transform: translateX(-1px);
-}
-
-.player-label {
-    position: absolute;
-    top: 10px;
-    font-size: 18px;
-    font-weight: bold;
-    background: rgba(255, 255, 255, 0.7);
-    padding: 4px 8px;
-    border-radius: 8px;
+    transform: scaleX(-1);
 }
 
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+}
+
+.ready-button {
+    margin-top: 16px;
+    padding: 10px 20px;
+    font-size: 20px;
+    background-color: #ff6384;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.ready-button:hover {
+    background-color: #ff4a6b;
+}
+
+.countdown {
+    font-size: 48px;
+    font-weight: bold;
+    color: #ff6384;
+    text-align: center;
+    margin-top: 20px;
+    animation: pop 0.4s ease-in-out;
+}
+
+@keyframes pop {
+    0% { transform: scale(0.5); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.result {
+    font-size: 20px;
+    margin-top: 16px;
+    color: #333;
+    text-align: center;
 }
