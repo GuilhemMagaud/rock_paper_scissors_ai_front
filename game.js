@@ -33,8 +33,8 @@ async function getSignResults() {
         try {
             const res = await fetch(`${baseUrl}/sign`);
             const data = await res.json();
-            const p1 = data.hand_sign_player1;
-            const p2 = data.hand_sign_player2;
+            const p1 = data["hand_sign_player1"];
+            const p2 = data["hand_sign_player2"];
 
             counts.player1[p1] = (counts.player1[p1] || 0) + 1;
             counts.player2[p2] = (counts.player2[p2] || 0) + 1;
