@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Play App</title>
+    <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+<div id="home-screen" class="screen">
+    <button id="play-button" onclick="startAI()">Let's Play!</button>
+</div>
+
+<div id="game-screen" class="screen hidden column">
+    <h1>Rock Paper Scissors!</h1>
+
+    <div id="loading-spinner" class="spinner"></div>
+
+    <div id="loading-text" class="loading-text"></div>
+
+    <img id="video" style="display: none; margin-top: 20px;" />
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
