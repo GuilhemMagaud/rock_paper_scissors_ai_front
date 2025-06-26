@@ -91,6 +91,25 @@ body, html {
     border-radius: 8px;
 }
 
+.video-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.lightning-img {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 100%;
+    width: 200px;
+    pointer-events: none;
+    z-index: 10;
+}
+
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
