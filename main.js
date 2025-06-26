@@ -12,6 +12,9 @@ const loadingMessages = [
 
 let messageInterval = null;
 
+let scoreP1 = 0;
+let scoreP2 = 0;
+
 async function startAI() {
     document.getElementById("home-screen").classList.add("hidden");
     document.getElementById("game-screen").classList.remove("hidden");
@@ -57,6 +60,7 @@ async function startAI() {
         loadingText.style.display = "none";
         video.style.display = "block";
         video.src = `${baseUrl}/video_feed`;
+        document.getElementById("score-bar").style.display = "flex";
         const readyBtn = document.getElementById("ready-button");
         readyBtn.style.display = "block";
         readyBtn.onclick = () => {

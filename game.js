@@ -66,9 +66,14 @@ function showResult(p1, p2) {
     let winner = "It's a tie!";
     if (beats[p1] === p2) {
         winner = "Player 1 wins!";
+        scoreP1++;
     } else if (beats[p2] === p1) {
         winner = "Player 2 wins!";
+        scoreP2++;
     }
+
+    document.getElementById("score-p1").textContent = `Player 1: ${scoreP1}`;
+    document.getElementById("score-p2").textContent = `Player 2: ${scoreP2}`;
 
     resultEl.textContent = `Player 1: ${p1}, Player 2: ${p2} — ${winner}`;
     document.getElementById("ready-button").style.display = "block";
