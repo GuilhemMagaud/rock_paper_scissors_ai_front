@@ -62,42 +62,6 @@ function mostCommon(obj) {
     return Object.entries(obj).reduce((a, b) => (b[1] > a[1] ? b : a))[0];
 }
 
-function showResult(p1, p2) {
-    const resultEl = document.getElementById("result");
-
-    const beats = {
-        "Pierre": "Ciseaux",
-        "Ciseaux": "Feuille",
-        "Feuille": "Pierre"
-    };
-
-    let winner = "It's a tie!";
-    let playerRes = "Égalité";
-    let aiRes = "Égalité";
-    if (beats[p1] === p2) {
-        winner = "Player 1 wins!";
-        scoreP1++;
-        playerRes = "Gagné";
-        aiRes = "Perdu";
-    } else if (beats[p2] === p1) {
-        winner = "Player 2 wins!";
-        scoreP2++;
-        playerRes = "Perdu";
-        aiRes = "Gagné";
-    }
-
-    playerHistory.push({ sign: p1, result: playerRes });
-    aiHistory.push({ sign: p2, result: aiRes });
-
-    updateHistoryTables();
-
-    document.getElementById("score-p1-table").textContent = `Player 1: ${scoreP1}`;
-    document.getElementById("score-p2-table").textContent = `Player 2: ${scoreP2}`;
-
-    resultEl.textContent = `Player 1: ${p1}, Player 2: ${p2} — ${winner}`;
-    document.getElementById("ready-button").style.display = "block";
-}
-
 function updateHistoryTables() {
     const playerTbody = document.querySelector('#player-history tbody');
     const aiTbody = document.querySelector('#ai-history tbody');
