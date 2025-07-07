@@ -1,4 +1,5 @@
-const baseUrl = 'http://localhost:5000';
+const baseUrl = window.env.API_URL;
+console.log("url: "+baseUrl);
 
 async function sendFramesToAPI(frames) {
     const formData = new FormData();
