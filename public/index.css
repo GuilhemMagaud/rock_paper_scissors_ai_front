@@ -156,3 +156,47 @@ body, html {
 .score.player-2 {
     text-align: right;
 }
+
+.game-flex-row {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 32px;
+    margin: 24px 0;
+}
+.history-table {
+    width: 280px;
+    max-width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border: 2px solid #ff6384;
+    font-size: 16px;
+    margin: 0 auto;
+}
+.history-table th, .history-table td {
+    border: 1px solid #ff6384;
+    padding: 10px 14px;
+    text-align: center;
+    min-width: 70px;
+}
+.history-table th:last-child, .history-table td:last-child {
+    padding-right: 18px;
+}
+.history-table thead th {
+    background: #fff0f4;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+.history-table tbody {
+    display: block;
+    max-height: 200px;
+    overflow-y: auto;
+    width: 100%;
+}
+.history-table thead, .history-table tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}

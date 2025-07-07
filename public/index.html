@@ -18,15 +18,30 @@
 
     <div id="loading-text" class="loading-text"></div>
 
-    <div id="score-bar" class="score-bar">
-        <div id="score-p1" class="score player-1">Player 1: 0</div>
-        <div id="score-p2" class="score player-2">Player 2: 0</div>
-    </div>
-
-    <div class="video-container">
-        <video id="video" autoplay playsinline style="display: none; margin-top: 20px;"></video>
-        <canvas id="capture-canvas" style="display: none;"></canvas>
-        <img class="lightning-img" src="lightning.png" alt="Éclair" />
+    <div class="game-flex-row" style="display: flex; flex-direction: row; align-items: flex-start; justify-content: center; gap: 32px; margin: 24px 0;">
+        <div>
+            <div id="score-p1-table" class="score-table" style="text-align:center; font-size:18px; font-weight:bold; color:#ff6384; margin-bottom:8px;">Player 1: 0</div>
+            <table id="player-history" class="history-table">
+                <thead>
+                    <tr><th>Round</th><th>Sign</th><th>Result</th></tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div class="video-container">
+            <video id="video" autoplay playsinline style="display: none; margin-top: 20px;"></video>
+            <canvas id="capture-canvas" style="display: none;"></canvas>
+            <img class="lightning-img" src="lightning.png" alt="Éclair" />
+        </div>
+        <div>
+            <div id="score-p2-table" class="score-table" style="text-align:center; font-size:18px; font-weight:bold; color:#ff6384; margin-bottom:8px;">Player 2: 0</div>
+            <table id="ai-history" class="history-table">
+                <thead>
+                    <tr><th>Round</th><th>Sign</th><th>Result</th></tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
     </div>
     <button id="ready-button" class="ready-button" style="display: none;">Ready?</button>
     <div id="countdown" class="countdown"></div>

@@ -20,7 +20,6 @@ async function startAI() {
 
         video.style.display = "block";
         spinner.style.display = "none";
-        document.getElementById("score-bar").style.display = "flex";
         document.getElementById("ready-button").style.display = "block";
         document.getElementById("ready-button").addEventListener("click", () => {
             document.getElementById("ready-button").style.display = "none";
