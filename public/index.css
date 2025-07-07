@@ -160,10 +160,13 @@ body, html {
 .game-flex-row {
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
+    align-items: center; 
     justify-content: center;
     gap: 32px;
-    margin: 24px 0;
+    margin: 48px 0 24px 0;
+    min-height: 350px; 
+    max-height: 70vh;  
+    overflow: auto;    
 }
 .history-table {
     width: 280px;
@@ -173,6 +176,8 @@ body, html {
     border: 2px solid #ff6384;
     font-size: 16px;
     margin: 0 auto;
+    table-layout: fixed;
+    height: 240px;      
 }
 .history-table th, .history-table td {
     border: 1px solid #ff6384;
@@ -191,7 +196,7 @@ body, html {
 }
 .history-table tbody {
     display: block;
-    max-height: 200px;
+    max-height: 180px; /* Ajusté pour laisser la place au thead */
     overflow-y: auto;
     width: 100%;
 }
