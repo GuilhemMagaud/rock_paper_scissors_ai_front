@@ -1,3 +1,6 @@
+let scoreP1 = 0;
+let scoreP2 = 0;
+
 function showCountdown(callback) {
     const countdownEl = document.getElementById("countdown");
     const steps = ["Rock", "Paper", "Scissors"];
@@ -23,31 +26,33 @@ function showCountdown(callback) {
     nextStep();
 }
 
-async function getSignResults() {
-    const counts = {
-        player1: {},
-        player2: {}
-    };
+function captureFiveFrames() {
+    const video = document.getElementById("video");
+    const canvas = document.getElementById("capture-canvas");
+    const ctx = canvas.getContext("2d");
 
-    for (let i = 0; i < 5; i++) {
-        try {
-            const res = await fetch(`${baseUrl}/sign`);
-            const data = await res.json();
-            const p1 = data["hand_sign_player1"];
-            const p2 = data["hand_sign_player2"];
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
 
-            counts.player1[p1] = (counts.player1[p1] || 0) + 1;
-            counts.player2[p2] = (counts.player2[p2] || 0) + 1;
-        } catch (err) {
-            console.error("Error fetching /sign:", err);
-        }
+    const frames = [];
 
-        await new Promise(res => setTimeout(res, 300));
+    let i = 0;
+
+    function capture() {
+        ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+        canvas.toBlob(blob => {
+            frames.push(blob);
+
+            if (++i < 5) {
+                setTimeout(capture, 200); 
+            } else {
+                console.log("✅ Captured 5 frames", frames);
+                sendFramesToAPI(frames);
+            }
+        }, 'image/jpeg');
     }
 
-    const final1 = mostCommon(counts.player1);
-    const final2 = mostCommon(counts.player2);
-    showResult(final1, final2);
+    capture();
 }
 
 function mostCommon(obj) {
