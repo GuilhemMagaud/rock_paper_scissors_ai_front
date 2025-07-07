@@ -35,6 +35,7 @@ async function sendFramesToAPI(frames) {
         const final1 = mostCommon(count.player1);
         const final2 = mostCommon(count.player2);
 
+        handleRoundResult(final1, final2);
     } catch (err) {
         console.error("Erreur d’envoi à /predict :", err);
     }
